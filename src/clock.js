@@ -1,3 +1,5 @@
+/*Adds a clock to any element with id="clock"*/
+
 function updateClock() {
   var currentTime = new Date();
 
@@ -23,7 +25,7 @@ function updateClock() {
   document.getElementById("clock").innerHTML = currentTimeString;
 }
 
-/*Once DOM loaded, calls updateClock() at 1s interval*/
+/*On content loaded, call updateClock() at 1s interval*/
 document.addEventListener("DOMContentLoaded", function() {
   setInterval("updateClock()", 1000);
 });
