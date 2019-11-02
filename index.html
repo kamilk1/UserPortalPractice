@@ -14,10 +14,11 @@
     />
 
     <!--Custom-Stylesheets-->
-    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="src/css/custom.css" />
 
     <!--Scripts-->
-    <script src="scripts/clock.js"></script>
+    <script src="src/scripts/clock.js"></script>
+    <script src="src/scripts/loginValidation.js"></script>
 
     <title>Javascript Practice</title>
   </head>
@@ -67,7 +68,7 @@
     <!--Login-Form-->
     <div class="container">
       <div class="mx-auto" style="width: 250px;">
-        <form action="php/submit.php" method="POST">
+        <form name="userLogin" action="src/php/login.php" method="POST">
           <div class="input-group mb-3">
             <input
               type="text"
@@ -80,7 +81,7 @@
 
           <div class="input-group mb-3">
             <input
-              type="text"
+              type="password"
               name="password"
               class="form-control"
               placeholder="Password"
