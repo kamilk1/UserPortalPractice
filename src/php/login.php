@@ -2,20 +2,27 @@
 
 include 'db_connection.php';
 
+$user = $_POST["loginUser"];
+$pass = $_POST["loginPass"];
+
+function alert($msg) {
+    echo "<script type='text/javascript'>alert('$msg');window.location.href='/index.html';</script>";
+}
+
 $conn = OpenCon();
 
-$user = $_POST["username"];
-$pass = $_POST["password"];
+//Login Query
+$sql = "SELECT * FROM users WHERE username = '$user' AND password = '$pass'";
+$result = $conn->query($sql);
 
-$sql = "INSERT INTO users (username, password)
-VALUES ('$user', '$pass')";
-
-if ($conn ->query($sql) === TRUE) {
-    echo "New record created successfully";
+if (mysqli_num_rows($result) > 0) {
+    header("Location: /src/pages/user_portal.html");
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    alert("Invalid Username/Password");
 }
 
 CloseCon($conn);
 
 ?>
+
+
